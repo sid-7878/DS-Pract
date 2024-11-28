@@ -1,0 +1,30 @@
+# Import pandas package
+import pandas as pd
+
+#program 1 - method I
+# Assign data
+data = {'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj', 'Ravi', 'Natasha', 'Riya'],
+        'Age': [17, 17, 18, 17, 18, 17, 17],
+        'Gender': ['M', 'F', 'M', 'M', 'M', 'F', 'F'],
+        'Marks': [90, 76, 'NaN', 74, 65, 'NaN', 71]}
+
+# Convert into DataFrame
+df = pd.DataFrame(data)
+
+# Display data
+print(df)
+
+########################
+
+# Program 2 - method II
+from sklearn.datasets import load_boston
+
+boston_dataset = load_boston()
+print(boston_dataset.DESCR)
+
+# Program 3 -method III
+import pandas as pd
+
+df = pd.read_csv('C:\\Users\\Machine Learning with Python-master\\Datasets\\loan_data.csv')
+print(df.head())
+

@@ -1,0 +1,108 @@
+Aim:
+Implementation of Python basic Libraries such as Math, Numpy, and Scipy
+
+NumPy
+NumPy is an open-source library available in Python that aids in mathematical, scientific, engineering, and data science programming. NumPy is an incredible library to perform mathematical and statistical operations. It works perfectly well for multi-dimensional arrays and matrix multiplication.
+
+For any scientific project, NumPy is the tool to know. It has been built to work with the N-dimensional array, linear algebra, random number, Fourier transform, etc. It can be integrated into C/C++ and Fortran.
+
+NumPy is a programming language that deals with multi-dimensional arrays and matrices. On top of these arrays and matrices, NumPy supports a large number of mathematical operations.
+
+NumPy is memory-efficient, meaning it can handle the vast amount of data more accessible than any other library. Besides, NumPy is very convenient to work with, especially for matrix multiplication and reshaping. On top of that, NumPy is fast. In fact, TensorFlow and Scikit-learn use the NumPy array to compute the matrix multiplication in the back end.
+
+Arrays in NumPy:
+NumPy’s main object is the homogeneous multidimensional array.
+
+It is a table of elements (usually numbers), all of the same type, indexed by a tuple of positive integers.
+In NumPy, dimensions are called axes. The number of axes is rank.
+NumPy’s array class is called ndarray. It is also known by the alias array.
+We use Python NumPy arrays instead of a list because of the below three reasons:
+
+Memory Efficiency
+Fast
+Convenient
+NumPy Functions
+NumPy arrays carry attributes around with them. The most important ones are:
+
+ndim: The number of axes or rank of the array
+shape: A tuple of integers indicating the size in each dimension
+size: The total number of elements
+
+
+
+# Program-1
+import numpy as np  # DEPT OF SOCSE4
+
+x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])  # 3x3 matrix
+print(x.ndim)   # Prints 2
+print(x.shape)  # Prints (3, 3)
+print(x.size)   # Prints 9
+
+
+# Program-2: Arithmetic operations apply element-wise
+a = np.array([20, 30, 40, 50, 60])
+b = np.arange(5)  # DEPT OF SOCSE4
+c = a + b         # c = array([20, 29, 38, 47, 56])
+print(c)
+
+# Built-in Methods: Many standard numerical functions are available as methods out of the box
+x = np.array([1, 2, 3, 4, 5])  # DEPT OF SOCSE4
+avg = x.mean()                 # Average of the array
+sx = x.sum()                   # Sum of the array
+mx = np.sin(x)                 # Sine of each element in the array
+
+print(avg)
+print(sx)
+print(mx)
+
+####################################################
+
+Python SciPy Library
+
+SciPy is an Open Source Python-based library, which is used in mathematics, scientific computing, engineering, and technical computing. SciPy is also pronounced as "Sigh Pi."
+
+SciPy contains a variety of sub-packages which help to solve the most common issues related to scientific computation.
+SciPy is the most used scientific library, only second to GNU Scientific Library for C/C++ or MATLAB.
+Easy to use and understand as well as fast computational power.
+It can operate on an array of the NumPy library.
+NumPy vs SciPy
+NumPy is written in C and is used for mathematical or numeric calculation.
+It is faster than other Python libraries.
+NumPy is the most useful library for Data Science to perform basic calculations.
+NumPy contains nothing but the array data type, which performs the most basic operations like sorting, shaping, indexing, etc.
+SciPy:
+SciPy is built on top of the NumPy.
+SciPy is a fully-featured version of Linear Algebra, while NumPy contains only a few features.
+Most new Data Science features are available in SciPy rather than in NumPy.
+
+
+# Program 1
+from scipy import linalg
+import numpy as np
+
+# Define a square matrix
+two_d_array = np.array([[4, 5], [3, 2]])  # Pass values to det() function
+
+# Calculate the determinant
+linalg.det(two_d_array)
+
+# Eigenvalues and Eigenvectors
+# The most common problem in linear algebra is eigenvalues and eigenvectors which can
+# be easily solved using the eig() function.
+# Now let's find the Eigenvalue of (X) and corresponding eigenvector of a two-dimensional square matrix.
+
+# Program 2
+from scipy import linalg
+import numpy as np
+
+# Define a two-dimensional array
+arr = np.array([[5, 4], [6, 3]])  # Pass value into function
+
+# Calculate eigenvalues and eigenvectors
+eg_val, eg_vect = linalg.eig(arr)  # Get eigenvalues and eigenvectors
+
+# Print eigenvalues
+print(eg_val)
+
+# Print eigenvectors
+print(eg_vect)

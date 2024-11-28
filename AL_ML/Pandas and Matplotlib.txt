@@ -1,0 +1,161 @@
+Pandas Library
+
+The primary two components of pandas are the Series and DataFrame.
+
+A Series is essentially a column, and a DataFrame is a multi-dimensional table made up of a collection of Series.   
+
+DataFrames and Series are quite similar in that many operations that you can do with one you can do with the other, such as filling in null values and calculating the mean.   
+
+Series
+
+apples	oranges
+3	3
+2	0
+1	7
+0	2
+
+Export to Sheets
+DataFrame
+
+apples	oranges
+3	3
+2	0
+1	7
+0	2
+
+Export to Sheets
+Reading data from CSVs
+
+With CSV files all you need is a single line to load in the data:
+
+Python
+df = pd.read_csv("purchases.csv")
+Use code with caution.
+
+Let's load in the IMDB movies dataset to begin:
+
+Python
+movies_df = pd.read_csv("IMDB-Movie-Data.csv", index_col="Title")
+Use code with caution.
+
+We're loading this dataset from a CSV and designating the movie titles to be our index.   
+
+Viewing your data
+
+The first thing to do when opening a new dataset is print out a few rows to keep as a visual reference. We accomplish this with head():   
+
+Python
+movies_df.head()
+Use code with caution.
+
+Another fast and useful attribute is shape, which outputs just a tuple of (rows, columns):
+
+Python
+movies_df.shape
+Use code with caution.
+
+Note that shape has no parentheses and is a simple tuple of format (rows, columns). So we have 1000 rows and 11 columns in our movies DataFrame.
+
+You'll be going to shape a lot when cleaning and transforming data. For example, you might filtersome rows based on some criteria and then want to know quickly how many rows were removed.   
+
+
+# Program 1
+import pandas as pd
+S = pd.Series([11, 28, 72, 3, 5, 8])
+print(S)
+
+# Program 2
+print(S.index)
+print(S.values)
+
+# Program 3
+import numpy as np
+X = np.array([11, 28, 72, 3, 5, 8])
+print(X)
+print(S.values)
+print(type(S.values), type(X))
+
+# Program 4
+fruits = ['apples', 'oranges', 'cherries', 'pears']
+quantities = [20, 33, 52, 10]
+S = pd.Series(quantities, index=fruits)
+print(S)
+
+# Program 5
+S1 = pd.Series([20, 33, 52, 10], index=fruits)
+S2 = pd.Series([17, 13, 31, 32], index=fruits)
+print(S1 + S2)
+print("sum of S:", sum(S))
+
+# Program 6
+fruits = ['peaches', 'oranges', 'cherries', 'pears']
+fruits2 = ['raspberries', 'oranges', 'cherries', 'pears']
+S1 = pd.Series([20, 33, 52, 10], index=fruits)
+S2 = pd.Series([17, 13, 31, 32], index=fruits2)
+print(S1 + S2)
+
+#####################################################
+
+Matplotlib is a powerful and versatile Python library for creating static, animated, and interactive visualizations. It provides a wide range of tools for 1  customizing plots, making it suitable for various data visualization tasks, from simple line plots to complex heatmaps and 3D visualizations.   
+1.
+github.com
+github.com
+
+Common Matplotlib Methods:
+
+Here's a list of some of the most commonly used methods in Matplotlib:
+
+Plotting Methods:
+
+plot(): Creates a line plot.
+scatter(): Creates a scatter plot.
+bar(): Creates a bar chart.
+hist(): Creates a histogram.
+boxplot(): Creates a box plot.
+pie(): Creates a pie chart.
+Figure and Axes Methods:
+
+figure(): Creates a new figure.
+subplot(): Creates subplots within a figure.
+gca(): Gets the current axes.
+cla(): Clears the current axes.
+clf(): Clears the entire figure.
+Axis Customization Methods:
+
+xlim(): Sets the x-axis limits.
+ylim(): Sets the y-axis limits.
+xlabel(): Sets the x-axis label.
+ylabel(): Sets the y-axis label.
+title(): Sets the plot title.
+grid(): Toggles the grid on or off.
+legend(): Adds a legend to the plot.
+Style and Customization Methods:
+
+style.use(): Sets the overall style of the plot.
+rc(): Configures Matplotlib's global settings.
+set_xlabel(): Sets the x-axis label.
+set_ylabel(): Sets the y-axis label.
+set_title(): Sets the plot title.
+set_xlim(): Sets the x-axis limits.
+set_ylim(): Sets the y-axis limits.
+set_xticks(): Sets the x-axis tick locations.
+set_yticks(): Sets the y-axis tick locations.
+set_xticklabels(): Sets the x-axis tick labels.
+set_yticklabels(): Sets the y-axis tick labels.
+Remember that these are just a few examples, and Matplotlib offers many more methods for customizing and fine-tuning your visualizations.
+
+# Program 1
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
+plt.show()
+
+# Program 2
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
+plt.title("First Plot")
+plt.xlabel("X label")
+plt.ylabel("Y label")
+plt.show()
+
+
