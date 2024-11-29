@@ -1,0 +1,62 @@
+Aim: Implementing deep neural network for performing classification task. 
+
+Problem statement: the given dataset comprises of health information about diabetic women patient. we 
+need to create deep feed forward network that will classify women suffering from diabetes mellitus as 
+ 
+# Step 1: Import required libraries 
+from numpy import loadtxt 
+from tensorflow.keras.models import Sequential 
+from tensorflow.keras.layers import Dense 
+from sklearn.model_selection import train_test_split 
+from sklearn.metrics import accuracy_score 
+
+
+# Step 2: Load the dataset (For simplicity, let's use a small dataset like Pima Indians Diabetes dataset) 
+# 
+Download the dataset from: https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima
+indians-diabetes.data.csv!wget -nc https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima
+indians-diabetes.data.csv 
+# Load dataset (8 input features and 1 target label) 
+dataset = loadtxt('pima-indians-diabetes.data.csv', delimiter=',') 
+X = dataset[:, 0:8]  # Input features (first 8 columns) 
+y = dataset[:, 8]    # Output labels (last column) 
+
+
+# Step 3: Split the data into training and testing sets 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) 
+
+
+# Step 4: Define the Deep Neural Network model 
+model = Sequential([ 
+Dense(12, input_dim=8, activation='relu'),  # Hidden Layer 1 with 12 neurons and ReLU activation 
+Dense(8, activation='relu'),                # Hidden Layer 2 with 8 neurons and ReLU activation 
+Dense(1, activation='sigmoid')              
+binary classification 
+# Output Layer with 1 neuron and Sigmoid activation for 
+]) 
+
+
+# Step 5: Compile the model 
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']) 
+
+
+# Step 6: Train the model 
+history = model.fit(X_train, y_train, epochs=50, batch_size=10, validation_split=0.1) 
+
+
+# Step 7: Evaluate the model 
+loss, accuracy = model.evaluate(X_test, y_test) 
+print(f'Test Accuracy: {accuracy * 100:.2f}%') 
+
+
+# Step 8: Make predictions 
+y_pred = (model.predict(X_test) > 0.5).astype("int32") 
+
+
+# Step 9: Calculate and display accuracy score 
+accuracy_score_value = accuracy_score(y_test, y_pred) 
+print(f'Accuracy 
+Score: 
+{accuracy_score_value 
+* 
+100:.2f}%'
