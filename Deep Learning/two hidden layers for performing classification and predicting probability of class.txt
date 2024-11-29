@@ -17,6 +17,6 @@ model.fit(X,Y,epochs=500)
 Xnew,Yreal=make_blobs(n_samples=3,centers=2,n_features=2,random_state=1) 
 Xnew=scalar.transform(Xnew) 
 Yclass=model.predict_classes(Xnew) 
-Ynew=model.predict_proba(Xnew) for i 
+Ynew=model.predict(Xnew) for i 
 in range(len(Xnew)): 
 print("X=%s,Predicted_probability=%s,Predicted_class=%s"%(Xnew[i],Ynew[i],Yclass[i]))
